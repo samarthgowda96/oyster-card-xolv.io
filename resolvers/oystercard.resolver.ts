@@ -1,5 +1,5 @@
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
-import {OysterCard,CreateOysterCardInput} from '../schema/oystercard.schema'
+import {CreateOysterCardInput, OysterCard} from '../schema/oystercard.schema'
 import OysterCardService from "../service/oystercard.service";
 
 
@@ -14,5 +14,6 @@ export default class OysterCardResolver{
         return this.oysterCardService.reloadOysterCard(input)
     }
 
+   
   
 }  

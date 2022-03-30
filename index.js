@@ -17,14 +17,6 @@ const dbconnection_1 = require("./config/dbconnection");
     const app = (0, express_1.default)();
     const server = new apollo_server_express_1.ApolloServer({
         schema,
-        context: (ctx) => {
-            const context = ctx;
-            /*  if (ctx.req.cookies. accessToken) {
-               const user = verifyJwt<User>(ctx.req.cookies.accessToken);
-               context.user = user;
-             } */
-            return context;
-        },
         plugins: [
             (0, apollo_server_core_1.ApolloServerPluginLandingPageGraphQLPlayground)()
         ]

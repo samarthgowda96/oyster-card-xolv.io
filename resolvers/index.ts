@@ -1,5 +1,6 @@
 import helloWorldResolver from "./helloWorldResolver"
-import UserResolver from "./user.resolvers"
 import OysterCardResolver from "./oystercard.resolver";
+import TripServiceResolver from "./starttrip.resolver"
 
-export const resolvers = [helloWorldResolver, UserResolver, OysterCardResolver] as const;
+
+export const resolvers = [helloWorldResolver, OysterCardResolver,TripServiceResolver] as const;

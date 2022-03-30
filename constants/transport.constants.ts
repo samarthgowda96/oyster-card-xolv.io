@@ -1,5 +1,4 @@
 export const ModeOfTransport = {
-    BUS:"BUS",
-    TUBE:"TUBE"
-
+    TUBE:"TUBE",
+    BUS:"BUS"
 };

@@ -16,37 +16,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const type_graphql_1 = require("type-graphql");
-const user_schema_1 = require("../schema/user.schema");
-const user_service_1 = __importDefault(require("../service/user.service"));
-let UserResolver = class UserResolver {
-    constructor(userService) {
-        this.userService = userService;
-        this.userService = new user_service_1.default();
+const starttrip_schema_1 = require("../schema/starttrip.schema");
+const starttrip_service_1 = __importDefault(require("../service/starttrip.service"));
+const oystercard_schema_1 = require("../schema/oystercard.schema");
+let TripServiceResolver = class TripServiceResolver {
+    constructor(startTripService) {
+        this.startTripService = startTripService;
+        this.startTripService = new starttrip_service_1.default();
     }
-    createUser(input) {
-        return this.userService.createUser(input);
+    createTrip(input) {
+        return this.startTripService.createTrip(input);
     }
-    me() {
-        return {
-            message: "Hello GraphQL"
-        };
+    swipeTrip(input) {
+        return this.startTripService.swipeTrip(input);
     }
 };
 __decorate([
-    (0, type_graphql_1.Mutation)(() => user_schema_1.User),
+    (0, type_graphql_1.Mutation)(() => starttrip_schema_1.Trip),
     __param(0, (0, type_graphql_1.Arg)('input')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [user_schema_1.CreateUserInput]),
+    __metadata("design:paramtypes", [starttrip_schema_1.CreateJourneyInput]),
     __metadata("design:returntype", void 0)
-], UserResolver.prototype, "createUser", null);
+], TripServiceResolver.prototype, "createTrip", null);
 __decorate([
-    (0, type_graphql_1.Query)(() => user_schema_1.User),
+    (0, type_graphql_1.Query)(() => oystercard_schema_1.OysterCard),
+    __param(0, (0, type_graphql_1.Arg)("input")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [starttrip_schema_1.CreateJourneyInput]),
     __metadata("design:returntype", void 0)
-], UserResolver.prototype, "me", null);
-UserResolver = __decorate([
+], TripServiceResolver.prototype, "swipeTrip", null);
+TripServiceResolver = __decorate([
     (0, type_graphql_1.Resolver)(),
-    __metadata("design:paramtypes", [user_service_1.default])
-], UserResolver);
-exports.default = UserResolver;
+    __metadata("design:paramtypes", [starttrip_service_1.default])
+], TripServiceResolver);
+exports.default = TripServiceResolver;

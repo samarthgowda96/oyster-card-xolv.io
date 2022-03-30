@@ -8,9 +8,9 @@ import  {buildSchema} from  "type-graphql"
 import express from 'express';
 import 'reflect-metadata';
 import {resolvers} from "./resolvers"
-import {connect} from 'mongoose';
-import Context from "./types/context";
-import { User } from "./schema/user.schema";
+
+
+
 import {connectdb} from './config/dbconnection'
 
 (async () =>{
@@ -21,15 +21,7 @@ import {connectdb} from './config/dbconnection'
     const app = express();
     const server = new ApolloServer({
         schema,
-        context: (ctx: Context) => {
-            const context = ctx;
-      
-           /*  if (ctx.req.cookies. accessToken) {
-              const user = verifyJwt<User>(ctx.req.cookies.accessToken);
-              context.user = user;
-            } */
-            return context;
-          },
+        
         plugins:[
             ApolloServerPluginLandingPageGraphQLPlayground()
         ]
