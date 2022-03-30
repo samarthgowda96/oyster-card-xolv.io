@@ -1,5 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
 import "reflect-metadata";
 import { ApolloServer } from "apollo-server-express"
 import {
@@ -11,15 +9,30 @@ import express from 'express';
 import 'reflect-metadata';
 import {resolvers} from "./resolvers"
 import {connect} from 'mongoose';
+import Context from "./types/context";
+import { User } from "./schema/user.schema";
+import {connectdb} from './config/dbconnection'
 
 (async () =>{
-    const mangoose =  connect(`mongodb+srv://${process.env.USER}:${process.env.DB_PASSWORD}@cluster0.jippb.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
+    
     const schema = await buildSchema({
         resolvers,
     })
     const app = express();
     const server = new ApolloServer({
         schema,
+        context: (ctx: Context) => {
+            const context = ctx;
+      
+           /*  if (ctx.req.cookies. accessToken) {
+              const user = verifyJwt<User>(ctx.req.cookies.accessToken);
+              context.user = user;
+            } */
+            return context;
+          },
+        plugins:[
+            ApolloServerPluginLandingPageGraphQLPlayground()
+        ]
     })
       await server.start()
       server.applyMiddleware({app});
@@ -29,6 +42,7 @@ import {connect} from 'mongoose';
     app.listen({ port: 4000 }, () => {
         console.log("App is listening on http://localhost:4000");
       });
+      connectdb();
     
 })();
 
