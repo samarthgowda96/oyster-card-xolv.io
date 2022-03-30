@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateOysterCardInput = exports.OysterCardModel = exports.OysterCard = void 0;
 const typegoose_1 = require("@typegoose/typegoose");
+const class_validator_1 = require("class-validator");
 const type_graphql_1 = require("type-graphql");
 let OysterCard = class OysterCard {
 };
@@ -20,7 +21,7 @@ __decorate([
 ], OysterCard.prototype, "_id", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => String),
-    (0, typegoose_1.prop)({ required: true }),
+    (0, typegoose_1.prop)({ required: true, unique: true }),
     __metadata("design:type", String)
 ], OysterCard.prototype, "email", void 0);
 __decorate([
@@ -36,6 +37,7 @@ exports.OysterCardModel = (0, typegoose_1.getModelForClass)(OysterCard);
 let CreateOysterCardInput = class CreateOysterCardInput {
 };
 __decorate([
+    (0, class_validator_1.IsEmail)(),
     (0, type_graphql_1.Field)(() => String),
     __metadata("design:type", String)
 ], CreateOysterCardInput.prototype, "email", void 0);

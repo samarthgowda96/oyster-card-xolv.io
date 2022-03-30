@@ -8,22 +8,20 @@ export class OysterCard {
     _id: string;
 
     @Field(() => String)
-    @prop({required: true})
+    @prop({required: true, unique: true})
     email: string;
 
     @Field((_type) => Number)
     @prop({required: true})
     total_balance: number;
     
-
-  
-
 }
 
 export const OysterCardModel = getModelForClass(OysterCard);
 
 @InputType()
 export class CreateOysterCardInput{
+    @IsEmail()
     @Field(() => String)
     email: string;
     

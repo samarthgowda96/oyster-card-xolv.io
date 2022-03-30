@@ -3,14 +3,14 @@ import {Field, ObjectType} from "type-graphql"
 
 @ObjectType()
 export class helloWorldSchema {
-    @Field(()=>String)
-    _id:string
+    @Field(() => String)
+    _id: string;
 
-    @Field(()=>String)
+    @Field(() => String)
     @prop({required: true})
-    message:string
+    message: string;
 
-    @Field(()=>String)
-    ping:string
+    @Field(() => String)
+    ping: string;
 
 }

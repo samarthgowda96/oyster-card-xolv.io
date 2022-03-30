@@ -26,7 +26,7 @@ __decorate([
 ], User.prototype, "name", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => String),
-    (0, typegoose_1.prop)({ required: true }),
+    (0, typegoose_1.prop)({ required: true, unique: true }),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 User = __decorate([
