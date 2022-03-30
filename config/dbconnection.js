@@ -10,7 +10,7 @@ dotenv_1.default.config();
 async function connectdb() {
     try {
         await (0, mongoose_1.connect)(`mongodb+srv://${process.env.USER}:${process.env.DB_PASSWORD}@cluster0.jippb.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`);
-        console.error("DB Connected!");
+        console.error("DB Connected :)");
     }
     catch (error) {
         console.error(error);

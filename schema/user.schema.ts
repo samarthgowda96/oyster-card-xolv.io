@@ -14,8 +14,7 @@ export class User {
     @prop({required: true})
     email: string;
 
-    @Field(()=> String)
-    total_balance: string;
+   
 
 }
 
@@ -37,6 +36,5 @@ export class CreateUserInput{
     @Field(() => String)
     password: string;
 
-    @Field(() => String)
-    total_balance: string;
+
 }

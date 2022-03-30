@@ -9,50 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateUserInput = exports.UserModel = exports.User = void 0;
+exports.CreateOysterCardInput = exports.OysterCardModel = exports.OysterCard = void 0;
 const typegoose_1 = require("@typegoose/typegoose");
-const class_validator_1 = require("class-validator");
 const type_graphql_1 = require("type-graphql");
-let User = class User {
+let OysterCard = class OysterCard {
 };
 __decorate([
     (0, type_graphql_1.Field)(() => String),
     __metadata("design:type", String)
-], User.prototype, "_id", void 0);
+], OysterCard.prototype, "_id", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => String),
     (0, typegoose_1.prop)({ required: true }),
     __metadata("design:type", String)
-], User.prototype, "name", void 0);
+], OysterCard.prototype, "email", void 0);
 __decorate([
-    (0, type_graphql_1.Field)(() => String),
+    (0, type_graphql_1.Field)((_type) => Number),
     (0, typegoose_1.prop)({ required: true }),
-    __metadata("design:type", String)
-], User.prototype, "email", void 0);
-User = __decorate([
+    __metadata("design:type", Number)
+], OysterCard.prototype, "total_balance", void 0);
+OysterCard = __decorate([
     (0, type_graphql_1.ObjectType)()
-], User);
-exports.User = User;
-exports.UserModel = (0, typegoose_1.getModelForClass)(User);
-let CreateUserInput = class CreateUserInput {
+], OysterCard);
+exports.OysterCard = OysterCard;
+exports.OysterCardModel = (0, typegoose_1.getModelForClass)(OysterCard);
+let CreateOysterCardInput = class CreateOysterCardInput {
 };
 __decorate([
     (0, type_graphql_1.Field)(() => String),
     __metadata("design:type", String)
-], CreateUserInput.prototype, "name", void 0);
+], CreateOysterCardInput.prototype, "email", void 0);
 __decorate([
-    (0, class_validator_1.IsEmail)(),
-    (0, type_graphql_1.Field)(() => String),
-    __metadata("design:type", String)
-], CreateUserInput.prototype, "email", void 0);
-__decorate([
-    (0, class_validator_1.MinLength)(6, {
-        message: "password is too short!"
-    }),
-    (0, type_graphql_1.Field)(() => String),
-    __metadata("design:type", String)
-], CreateUserInput.prototype, "password", void 0);
-CreateUserInput = __decorate([
+    (0, type_graphql_1.Field)(() => Number),
+    __metadata("design:type", Number)
+], CreateOysterCardInput.prototype, "total_balance", void 0);
+CreateOysterCardInput = __decorate([
     (0, type_graphql_1.InputType)()
-], CreateUserInput);
-exports.CreateUserInput = CreateUserInput;
+], CreateOysterCardInput);
+exports.CreateOysterCardInput = CreateOysterCardInput;
