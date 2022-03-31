@@ -7,6 +7,7 @@ exports.connectdb = void 0;
 const mongoose_1 = require("mongoose");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
+// Connect to mongodb atlas database
 async function connectdb() {
     try {
         await (0, mongoose_1.connect)(`mongodb+srv://${process.env.USER}:${process.env.DB_PASSWORD}@cluster0.jippb.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`);

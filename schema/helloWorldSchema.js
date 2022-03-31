@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.helloWorldSchema = void 0;
 const typegoose_1 = require("@typegoose/typegoose");
 const type_graphql_1 = require("type-graphql");
+//Test Schema
 let helloWorldSchema = class helloWorldSchema {
 };
 __decorate([

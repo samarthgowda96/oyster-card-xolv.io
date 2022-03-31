@@ -18,6 +18,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const type_graphql_1 = require("type-graphql");
 const oystercard_schema_1 = require("../schema/oystercard.schema");
 const oystercard_service_1 = __importDefault(require("../service/oystercard.service"));
+// Mutation and Queries for OyserCard Model
 let OysterCardResolver = class OysterCardResolver {
     constructor(oysterCardService) {
         this.oysterCardService = oysterCardService;
@@ -25,6 +26,9 @@ let OysterCardResolver = class OysterCardResolver {
     }
     reloadOysterCard(input) {
         return this.oysterCardService.reloadOysterCard(input);
+    }
+    viewOysterCard(input) {
+        return this.oysterCardService.viewOysterCard(input);
     }
 };
 __decorate([
@@ -34,6 +38,13 @@ __decorate([
     __metadata("design:paramtypes", [oystercard_schema_1.CreateOysterCardInput]),
     __metadata("design:returntype", void 0)
 ], OysterCardResolver.prototype, "reloadOysterCard", null);
+__decorate([
+    (0, type_graphql_1.Query)(() => oystercard_schema_1.OysterCard),
+    __param(0, (0, type_graphql_1.Arg)("input")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [oystercard_schema_1.CreateAuthInput]),
+    __metadata("design:returntype", void 0)
+], OysterCardResolver.prototype, "viewOysterCard", null);
 OysterCardResolver = __decorate([
     (0, type_graphql_1.Resolver)(),
     __metadata("design:paramtypes", [oystercard_service_1.default])

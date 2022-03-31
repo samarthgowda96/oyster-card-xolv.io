@@ -19,6 +19,7 @@ const type_graphql_1 = require("type-graphql");
 const starttrip_schema_1 = require("../schema/starttrip.schema");
 const starttrip_service_1 = __importDefault(require("../service/starttrip.service"));
 const oystercard_schema_1 = require("../schema/oystercard.schema");
+// Mutation and Queries for Demostrate Journey service
 let TripServiceResolver = class TripServiceResolver {
     constructor(startTripService) {
         this.startTripService = startTripService;

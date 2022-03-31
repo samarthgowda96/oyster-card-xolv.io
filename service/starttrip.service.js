@@ -23,13 +23,15 @@ class TripService {
     async createTrip(input) {
         return starttrip_schema_1.TripModel.create(input);
     }
+    //Entery point of the trip
     async swipeTrip(input) {
         this.fareCharged = 0;
         const userOysterCard = await oystercard_schema_1.OysterCardModel.find({ user_id: input.userId });
         const userBalance = userOysterCard[0].total_balance;
         this.balance = userBalance;
         this.fareCharged = input.mode === transport_constants_1.ModeOfTransport.BUS ? fares_constants_1.fares.ANY_BUS_TRIP : fares_constants_1.fares.MAX_FARE;
-        if (this.balance < this.fareCharged) { //return messages
+        //Check the balance of the user
+        if (this.balance < this.fareCharged) { //return message in future
             console.log("You don't have minimum balance, please recharge!");
         }
         this.balance = this.balance - this.fareCharged;
@@ -47,15 +49,17 @@ class TripService {
     distanceTravelled() {
         return this.calculateZonesTravelled(this.journey[0].zone, this.journey[1].zone);
     }
+    //Calculate no of zones travelled
     calculateZonesTravelled(from, to) {
         let count = 0;
-        from.forEach(function (fromZone) {
-            to.forEach(function (toZone) {
+        from.forEach((fromZone) => {
+            to.forEach((toZone) => {
                 count = Math.abs(fromZone - toZone) + 1;
             });
         });
         return count;
     }
+    //Find cost of tube 
     findTubeFare(zonesTravelled, journey) {
         const from = journey[0].zone, to = journey[1].zone;
         console.log(from, to);
@@ -74,9 +78,9 @@ class TripService {
         if (zonesTravelled === 3) {
             return fares_constants_1.fares.THREE_ZONES;
         }
-        //default to
         return fares_constants_1.fares.MAX_FARE;
     }
+    // Exit point of the trip
     async exitTrip(input) {
         if (input.mode === transport_constants_1.ModeOfTransport.BUS) {
             await oystercard_schema_1.OysterCardModel.findOneAndUpdate({
@@ -87,12 +91,10 @@ class TripService {
         }
         const station = input.station;
         const currentStation = Object.getOwnPropertyDescriptor(station_constants_1.default, station);
-        console.log(currentStation);
         this.journey[1] = currentStation === null || currentStation === void 0 ? void 0 : currentStation.value;
         this.fareCharged = this.findTubeFare(this.distanceTravelled(), this.journey);
-        console.log(this.balance, fares_constants_1.fares.MAX_FARE, this.fareCharged);
+        //Adding Deducted MAX_FARE back 
         this.balance = (this.balance + fares_constants_1.fares.MAX_FARE) - this.fareCharged;
-        console.log(this.balance);
         return oystercard_schema_1.OysterCardModel.findOneAndUpdate({
             "_id": input.userId
         }, { $set: { total_balance: this.balance }

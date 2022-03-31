@@ -25,6 +25,6 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], helloWorldResolver.prototype, "ping", null);
 helloWorldResolver = __decorate([
-    (0, type_graphql_1.Resolver)()
+    (0, type_graphql_1.Resolver)() //First test resolver in TS
 ], helloWorldResolver);
 exports.default = helloWorldResolver;

@@ -1,6 +1,8 @@
 import {prop} from "@typegoose/typegoose"
 import {Field, ObjectType} from "type-graphql"
 
+
+//Test Schema
 @ObjectType()
 export class helloWorldSchema {
     @Field(() => String)

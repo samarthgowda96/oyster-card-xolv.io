@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateJourneyInput = exports.TripModel = exports.Trip = void 0;
 const typegoose_1 = require("@typegoose/typegoose");
 const type_graphql_1 = require("type-graphql");
+//Trip Model Definition, Testing only, TODO: Link user_id
 let Trip = class Trip {
 };
 __decorate([
@@ -38,6 +39,7 @@ Trip = __decorate([
 ], Trip);
 exports.Trip = Trip;
 exports.TripModel = (0, typegoose_1.getModelForClass)(Trip);
+// Definition of input for Trip Service
 let CreateJourneyInput = class CreateJourneyInput {
 };
 __decorate([

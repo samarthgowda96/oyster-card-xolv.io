@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fares = void 0;
+//Fares constants
 exports.fares = {
     MAX_FARE: 3.20,
     ANYWHERE_IN_ZONE1: 2.50,

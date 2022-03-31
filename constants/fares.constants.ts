@@ -1,3 +1,4 @@
+//Fares constants
 export const fares = {
     MAX_FARE: 3.20,
     ANYWHERE_IN_ZONE1: 2.50,
@@ -7,6 +8,7 @@ export const fares = {
     THREE_ZONES: 3.20,
     ANY_BUS_TRIP: 1.80,
 };
+
 export interface Station {
     name: string, zone: number[]
 };

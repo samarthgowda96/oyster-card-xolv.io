@@ -2,6 +2,8 @@ import {getModelForClass, prop} from "@typegoose/typegoose"
 import { IsEmail, MinLength } from "class-validator";
 import {Field, InputType,ObjectType} from "type-graphql"
 
+
+//Oyster Card Model Definition
 @ObjectType()
 export class OysterCard {
     @Field(() => String)
@@ -19,6 +21,8 @@ export class OysterCard {
 
 export const OysterCardModel = getModelForClass(OysterCard);
 
+
+// Definition of input for Oyster Card Model
 @InputType()
 export class CreateOysterCardInput{
     @IsEmail()
@@ -29,5 +33,9 @@ export class CreateOysterCardInput{
    total_balance: number;
 
 }
-
+@InputType()
+export class CreateAuthInput{
+    @Field(() => String)
+    _id: string;
+}
 

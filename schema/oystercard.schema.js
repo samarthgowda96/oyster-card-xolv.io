@@ -9,10 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateOysterCardInput = exports.OysterCardModel = exports.OysterCard = void 0;
+exports.CreateAuthInput = exports.CreateOysterCardInput = exports.OysterCardModel = exports.OysterCard = void 0;
 const typegoose_1 = require("@typegoose/typegoose");
 const class_validator_1 = require("class-validator");
 const type_graphql_1 = require("type-graphql");
+//Oyster Card Model Definition
 let OysterCard = class OysterCard {
 };
 __decorate([
@@ -34,6 +35,7 @@ OysterCard = __decorate([
 ], OysterCard);
 exports.OysterCard = OysterCard;
 exports.OysterCardModel = (0, typegoose_1.getModelForClass)(OysterCard);
+// Definition of input for Oyster Card Model
 let CreateOysterCardInput = class CreateOysterCardInput {
 };
 __decorate([
@@ -49,3 +51,13 @@ CreateOysterCardInput = __decorate([
     (0, type_graphql_1.InputType)()
 ], CreateOysterCardInput);
 exports.CreateOysterCardInput = CreateOysterCardInput;
+let CreateAuthInput = class CreateAuthInput {
+};
+__decorate([
+    (0, type_graphql_1.Field)(() => String),
+    __metadata("design:type", String)
+], CreateAuthInput.prototype, "_id", void 0);
+CreateAuthInput = __decorate([
+    (0, type_graphql_1.InputType)()
+], CreateAuthInput);
+exports.CreateAuthInput = CreateAuthInput;

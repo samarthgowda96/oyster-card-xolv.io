@@ -7,4 +7,5 @@ exports.resolvers = void 0;
 const helloWorldResolver_1 = __importDefault(require("./helloWorldResolver"));
 const oystercard_resolver_1 = __importDefault(require("./oystercard.resolver"));
 const starttrip_resolver_1 = __importDefault(require("./starttrip.resolver"));
+//Exporting all the resolvers as const
 exports.resolvers = [helloWorldResolver_1.default, oystercard_resolver_1.default, starttrip_resolver_1.default];

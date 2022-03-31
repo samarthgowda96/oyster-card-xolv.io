@@ -10,6 +10,7 @@ const express_1 = __importDefault(require("express"));
 require("reflect-metadata");
 const resolvers_1 = require("./resolvers");
 const dbconnection_1 = require("./config/dbconnection");
+// Server || Express setup
 (async () => {
     const schema = await (0, type_graphql_1.buildSchema)({
         resolvers: resolvers_1.resolvers,
@@ -23,9 +24,8 @@ const dbconnection_1 = require("./config/dbconnection");
     });
     await server.start();
     server.applyMiddleware({ app });
-    //app.use(cookieParser())
     app.listen({ port: 4000 }, () => {
-        console.log("App is listening on http://localhost:4000");
+        console.log("Server is listening on http://localhost:4000");
     });
     (0, dbconnection_1.connectdb)();
 })();

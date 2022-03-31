@@ -2,6 +2,7 @@ import {getModelForClass, prop} from "@typegoose/typegoose"
 import { IsEmail, MinLength } from "class-validator";
 import {Field, ID, InputType,ObjectType} from "type-graphql"
 
+//Trip Model Definition, Testing only, TODO: Link user_id
 @ObjectType()
 export class Trip {
     @Field(() => String)
@@ -23,7 +24,7 @@ export class Trip {
 export const TripModel = getModelForClass(Trip);
 
 
-
+// Definition of input for Trip Service
 @InputType()
 export class CreateJourneyInput{
     

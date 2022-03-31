@@ -1,3 +1,4 @@
+//Station constants
 const STATIONS = {
     HOLBORN : {name: "Holborn", zone: [1]},
     EARLSCOURT: {name: "Earl's Court", zone: [1, 2]},
