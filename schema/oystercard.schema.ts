@@ -8,7 +8,7 @@ export class OysterCard {
     _id: string;
 
     @Field(() => String)
-    @prop({required: true})
+    @prop({required: true, unique: true})
     email: string;
 
     @Field((_type) => Number)
@@ -26,7 +26,7 @@ export class CreateOysterCardInput{
     email: string;
     
     @Field(() => Number)
-    total_balance: number;
+   total_balance: number;
 
 }
 

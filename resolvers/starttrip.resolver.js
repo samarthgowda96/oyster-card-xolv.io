@@ -30,6 +30,9 @@ let TripServiceResolver = class TripServiceResolver {
     swipeTrip(input) {
         return this.startTripService.swipeTrip(input);
     }
+    exitTrip(input) {
+        return this.startTripService.exitTrip(input);
+    }
 };
 __decorate([
     (0, type_graphql_1.Mutation)(() => starttrip_schema_1.Trip),
@@ -45,6 +48,13 @@ __decorate([
     __metadata("design:paramtypes", [starttrip_schema_1.CreateJourneyInput]),
     __metadata("design:returntype", void 0)
 ], TripServiceResolver.prototype, "swipeTrip", null);
+__decorate([
+    (0, type_graphql_1.Query)(() => oystercard_schema_1.OysterCard),
+    __param(0, (0, type_graphql_1.Arg)("input")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [starttrip_schema_1.CreateJourneyInput]),
+    __metadata("design:returntype", void 0)
+], TripServiceResolver.prototype, "exitTrip", null);
 TripServiceResolver = __decorate([
     (0, type_graphql_1.Resolver)(),
     __metadata("design:paramtypes", [starttrip_service_1.default])

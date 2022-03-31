@@ -14,13 +14,18 @@ export default class TripServiceResolver{
     createTrip(@Arg('input') input: CreateJourneyInput){
     
         return this.startTripService.createTrip(input)
-
     }
-
+    
     @Query(() => OysterCard)
     swipeTrip(@Arg("input") input: CreateJourneyInput){
         return this.startTripService.swipeTrip(input)
     }
+
+    @Query(() => OysterCard)
+    exitTrip(@Arg("input") input: CreateJourneyInput){
+        return this.startTripService.exitTrip(input)
+    }
+
 
 
 }
